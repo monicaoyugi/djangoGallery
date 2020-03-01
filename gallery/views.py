@@ -12,7 +12,7 @@ def search_results(request):
         searched_Images = Image.search_image(search_term)
         message = f"{search_term}"
 
-        return render(request,'gallery/search.html',{"message":massage,"Images":searched_Images})
+        return render(request,'gallery/search.html',{"message": massage,"Images": searched_Images})
 
     else:
         message = " You didn't search for anything."
