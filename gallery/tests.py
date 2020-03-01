@@ -1,3 +1,3 @@
 from django.test import TestCase
-from .models import Image, Location, Category
+from .models import Category, Images, Location
 
