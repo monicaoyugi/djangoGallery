@@ -1,7 +1,5 @@
 ## Gallery
-Is a django application that allows users display their photos for others to see.
-
-
+Gallery is a django application that allows users display their photos for others to see.
 
 ## Requirements
 Clone the the repository by running
@@ -28,7 +26,8 @@ virtualenv virtual
 To activate the virtual environment we just created,
 run
 
-```source virtual/bin/activate
+```
+source virtual/bin/activate
 ```
 
 ## Create a database
@@ -38,33 +37,40 @@ You'll need to create a new postgress database, Type the following command to ac
 
  Then run the following query to create a new database named picsgarage
 
-```create database gallery
+```
+create database gallery
 ```
 
 ## Install dependencies
 To install the requirements from requirements.txt file,
 
-```pip install -r requirements.txt
+```
+pip install -r requirements.txt
 ```
 
 ## Create Database migrations
 Making migrations on postgres using django
 run 
-```python3 manage.py makemigrations garage
+
+```
+python3 manage.py makemigrations garage
 ```
 then run the command below;
 
-```python3 manage.py migrate
+```
+python3 manage.py migrate
 ```
 ## Run the app
 To run the application on your development machine,
 
-```python3 manage.py runserver
+```
+python3 manage.py runserver
 ```
 ## Running Tests
 To run tests
 
-```python3 manage.py test
+```
+python3 manage.py test
 ```
 
 ## Technologies Used
