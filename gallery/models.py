@@ -10,7 +10,7 @@ class Location(models.Model):
         self.delete()
 
     def __str__(self):
-        return self.location
+        return self.place
 
 
 class Category(models.Model):
@@ -23,19 +23,19 @@ class Category(models.Model):
         self.delete()
 
     def __str__(self):
-        return self.category
+        return self.name
 
-class Images(models.Model):
-    image = models.ImageField(upload_to='images/')
+class Image(models.Model):
+    image = models.ImageField(upload_to='images/',null=True)
     image_name = models.CharField(max_length=255)
     image_description = models.TextField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
 
-    def save_category(self):
+    def save_Image(self):
         self.save()
 
-    def delete_category(self):
+    def delete_Image(self):
         self.delete()
 
     @classmethod
@@ -50,7 +50,7 @@ class Images(models.Model):
 
     @classmethod
     def get_image_by_id(cls, id):
-        return cls.objects.get(pk=id)
+        return cls.objects.filter(id=id)
 
 
     @classmethod
@@ -62,7 +62,6 @@ class Images(models.Model):
     def search_by_title(cls, search_term):
         news = cls.objects.filter(name__icontains=search_term)
         return news
-    
+        
     class Meta:
         ordering = ['image_name']
-        
