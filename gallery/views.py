@@ -4,7 +4,8 @@ from .models import Image
 
 def index(request):
     images = Image.objects.all()
-    return render(request,'gallery/index.html',{"images":images})
+    return render(request,'index.html',{"images":images})
+
 
 def search_results(request):
     if 'image' in request.Get and request.Get["image"]:
@@ -22,5 +23,14 @@ def search_location(request,location):
     images_by_location = Image.filter_by_location(location)
 
     return render(request,'gallery/location.html',{"images":images_by_location})
+
+def search_image(request,pic):
+    images_by_location = Image.get_image_by_id(pic)
+
+    return render(request,'location.html',{"images":images_by_location})
+
+
+
+
 
 
