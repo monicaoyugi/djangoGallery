@@ -2,8 +2,8 @@
 {% block content %}
 <div class="container"> <br>
   <div class="row">
-    {% if images%}
-      <h2>Found {{ images|length }} of searched term {{message}}</h2> <hr>
+    {% if image%}
+      <h2>Found {{ image|length }} of searched term {{message}}</h2> <hr>
     {% else %}
       <h2> Found 0 photos for the search term {{message}}</h2> <hr>
     {% endif %}
