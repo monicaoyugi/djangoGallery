@@ -8,21 +8,21 @@ def index(request):
 
 
 def search_results(request):
-    if 'image' in request.Get and request.Get["image"]:
+    if 'image' in request.GET and request.GET["image"]:
         search_term = request.GET.get("image")
-        searched_Images = Image.search_image(search_term)
+        searched_Images = Image.search_by_category(search_term)
         message = f"{search_term}"
 
-        return render(request,'gallery/search.html',{"message": massage,"Images": searched_Images})
+        return render(request,'search.html',{"message": massage,"Images": searched_Images})
 
     else:
         message = " You didn't search for anything."
-        return render(request,'gallery/search.html',{"message":message})
+        return render(request,'search.html',{"message":message})
 
 def search_location(request,location):
     images_by_location = Image.filter_by_location(location)
 
-    return render(request,'gallery/location.html',{"images":images_by_location})
+    return render(request,'location.html',{"images":images_by_location})
 
 def search_image(request,pic):
     images_by_location = Image.get_image_by_id(pic)
